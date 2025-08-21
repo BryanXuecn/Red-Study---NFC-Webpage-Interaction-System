@@ -1,4 +1,4 @@
-serverAddr = "8.153.82.198"
+serverAddr = "YOUR_SERVER_IP"
 serverPort = 7000
 
 [[proxies]]
