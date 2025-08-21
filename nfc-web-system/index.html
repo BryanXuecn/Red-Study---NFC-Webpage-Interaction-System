@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红色研学NFC交互系统</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1529 100%);
+            color: white;
+            font-family: "Microsoft YaHei", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hall-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+        }
+        .hall-btn {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 1rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .hall-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">🚩 红色研学NFC交互系统</div>
+    <div class="subtitle">传承红色基因 · 感悟真理力量</div>
+    
+    <div class="hall-list">
+        <a href="./01-manifesto-hall/html/index.html" class="hall-btn">
+            📖 《共产党宣言》展示馆
+        </a>
+        <a href="./02-anthem-hall/html/index.html" class="hall-btn">
+            🎵 国歌展示馆
+        </a>
+        <a href="./03-riverside-hall/html/index.html" class="hall-btn">
+            🏗️ 杨浦滨江规划展示馆
+        </a>
+    </div>
+    
+    <script>
+        // 自动跳转到宣言馆
+        setTimeout(() => {
+            if (confirm('是否直接进入《共产党宣言》展示馆？')) {
+                window.location.href = './01-manifesto-hall/html/index.html';
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

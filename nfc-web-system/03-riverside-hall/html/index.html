@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城市之芯 - 杨浦滨江规划展示馆</title>
+    
+    <!-- 继承通用样式 -->
+    <link rel="stylesheet" href="../../static-assets/common-css/reset.css">
+    <link rel="stylesheet" href="../../static-assets/common-css/variables.css">
+    <link rel="stylesheet" href="../../static-assets/common-css/responsive.css">
+    <link rel="stylesheet" href="../css/binjiang-hall.css?v=20250821">
+</head>
+<body>
+    <!-- 加载动画 - 简化版城市天际线 -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="building-loader">
+                <div class="building building-1"></div>
+                <div class="building building-2"></div>
+                <div class="building building-3"></div>
+                <div class="building building-4"></div>
+                <div class="building building-5"></div>
+            </div>
+            <h2 class="loading-title">杨浦滨江规划展示馆</h2>
+            <p class="loading-subtitle">城市更新 · 工业传承 · 未来愿景</p>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主容器 -->
+    <div id="main-container" class="main-container hidden">
+        <!-- 头部导航 -->
+        <header class="hall-header">
+            <div class="header-content">
+                <div class="hall-badge">
+                    <div class="badge-icon">
+                        <div class="chinese-seal">滨江</div>
+                    </div>
+                    <div class="hall-info">
+                        <h1 class="hall-name">杨浦滨江规划展示馆</h1>
+                        <p class="hall-subtitle">Yangpu Riverside Urban Planning Exhibition</p>
+                    </div>
+                </div>
+                <div class="progress-indicator">
+                    <div class="step-circle">
+                        <span class="step-number">3</span>
+                    </div>
+                    <span class="step-label">第三站</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- NFC 访问成功指示器 -->
+            <section class="nfc-section">
+                <div id="nfc-status" class="nfc-status">
+                    <div class="nfc-icon-container">
+                        <div class="nfc-icon">
+                            <div class="nfc-symbol"></div>
+                            <div class="nfc-waves">
+                                <div class="wave wave-1"></div>
+                                <div class="wave wave-2"></div>
+                                <div class="wave wave-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nfc-content">
+                        <h3 class="nfc-title">NFC 访问成功</h3>
+                        <p class="nfc-text">您已通过NFC芯片成功访问滨江馆</p>
+                        <div class="nfc-description">
+                            <span>🏗️ 城市之芯印章已收集</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 时空对比展示区域 -->
+            <section class="comparison-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">⏳</span>
+                        时空对比展示
+                    </h2>
+                    <p class="section-subtitle">滑动查看杨浦滨江的历史变迁</p>
+                </div>
+                
+                <div class="comparison-container">
+                    <div class="image-comparison">
+                        <div class="before-image">
+                            <div class="image-placeholder historical">
+                                <div class="image-overlay">
+                                    <h3>1990年代工业码头</h3>
+                                    <p>杨浦滨江工业遗存</p>
+                                    <div class="image-details">
+                                        <span>📍 杨浦滨江区域</span>
+                                        <span>🏭 工业时代印记</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="after-image">
+                            <div class="image-placeholder modern">
+                                <div class="image-overlay">
+                                    <h3>2024年现代滨江</h3>
+                                    <p>城市更新后的滨江新貌</p>
+                                    <div class="image-details">
+                                        <span>🌆 现代都市风貌</span>
+                                        <span>🌱 绿色生态发展</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-slider">
+                            <input type="range" id="comparison-range" min="0" max="100" value="50" class="slider-input">
+                            <div class="slider-line"></div>
+                            <div class="slider-handle">
+                                <span class="handle-icon">⟷</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-legend">
+                        <div class="legend-item historical">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">
+                                <strong>工业遗存时期</strong>
+                                <p>见证上海工业发展的历史足迹</p>
+                            </div>
+                        </div>
+                        <div class="legend-item modern">
+                            <div class="legend-color"></div>
+                            <div class="legend-text">
+                                <strong>现代更新时期</strong>
+                                <p>展现城市转型的崭新面貌</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 发展时间轴区域 -->
+            <section class="timeline-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">📅</span>
+                        发展时间轴
+                    </h2>
+                    <p class="section-subtitle">探索杨浦滨江的百年发展历程</p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-track">
+                        <div class="timeline-line"></div>
+                        
+                        <div class="timeline-item" data-year="1900">
+                            <div class="timeline-marker industrial">
+                                <div class="marker-icon">🏭</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">1900年代</div>
+                                <h3>工业起源</h3>
+                                <p>杨浦滨江成为上海重要的工业基地，纺织、化工等产业兴起，奠定了近代工业发展的基础。</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">纺织工业</span>
+                                    <span class="tag">化工产业</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item" data-year="1950">
+                            <div class="timeline-marker development">
+                                <div class="marker-icon">⚙️</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">1950年代</div>
+                                <h3>工业鼎盛</h3>
+                                <p>国营工厂林立，成为新中国工业建设的重要象征，为国家经济发展作出重要贡献。</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">国营企业</span>
+                                    <span class="tag">重工业发展</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item" data-year="2000">
+                            <div class="timeline-marker transition">
+                                <div class="marker-icon">🔄</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2000年代</div>
+                                <h3>转型期</h3>
+                                <p>工业结构调整，开始探索城市更新和产业转型，为现代化发展奠定了基础。</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">产业调整</span>
+                                    <span class="tag">城市更新</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item" data-year="2015">
+                            <div class="timeline-marker renewal">
+                                <div class="marker-icon">🏗️</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2015年代</div>
+                                <h3>全面更新</h3>
+                                <p>启动大规模城市更新工程，建设世界级滨水空间，打造现代化城市地标。</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">大规模改造</span>
+                                    <span class="tag">滨水空间</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item" data-year="2024">
+                            <div class="timeline-marker modern">
+                                <div class="marker-icon">🌆</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2024年</div>
+                                <h3>现代地标</h3>
+                                <p>建成国际化现代滨江区，成为上海城市新名片，展现了城市发展的新高度。</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">国际化</span>
+                                    <span class="tag">城市名片</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-controls">
+                        <button id="play-timeline" class="control-btn">
+                            <span class="btn-icon">▶</span>
+                            <span class="btn-text">播放时间轴</span>
+                        </button>
+                        <button id="reset-timeline" class="control-btn">
+                            <span class="btn-icon">⏮</span>
+                            <span class="btn-text">重新开始</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部导航 -->
+        <footer class="hall-footer">
+            <div class="completion-status">
+                <div class="stamp-collection">
+                    <div class="stamp-icon completed">🏗️</div>
+                    <span class="stamp-label">城市之章已收集</span>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prev-hall-btn" class="nav-btn prev-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                    <span>返回国歌馆</span>
+                </button>
+                
+                <button id="home-btn" class="nav-btn home-btn">
+                    <span>返回首页</span>
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript 引用 -->
+    <script src="../../static-assets/common-js/polyfills.js"></script>
+    <script src="../../static-assets/common-js/config.js"></script>
+    <script src="../../common-components/nfc-reader/nfcHandler.js"></script>
+    <script src="../js/binjiang-hall.js?v=20250821"></script>
+</body>
+</html>

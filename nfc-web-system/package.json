@@ -1,0 +1,12 @@
+{
+  "name": "red-study-nfc-system",
+  "version": "1.0.0",
+  "description": "红色研学NFC交互系统",
+  "scripts": {
+    "start": "npx http-server -p 8080 -c-1",
+    "https": "npx http-server -p 8443 -S -C cert.pem -K key.pem -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

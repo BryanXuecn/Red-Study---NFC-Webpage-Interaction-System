@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>觉醒之声 - 《义勇军进行曲》展示馆</title>
+    
+    <!-- 继承通用样式 -->
+    <link rel="stylesheet" href="../../static-assets/common-css/reset.css">
+    <link rel="stylesheet" href="../../static-assets/common-css/variables.css">
+    <link rel="stylesheet" href="../../static-assets/common-css/responsive.css">
+    <link rel="stylesheet" href="../css/anthem-hall.css?v=20250821">
+    
+    <!-- Meta 标签 -->
+    <meta name="description" content="义勇军进行曲展示馆 - 聆听时代强音，感受民族觉醒">
+    <meta name="keywords" content="义勇军进行曲,国歌,聂耳,田汉,红色研学,NFC">
+    
+    <!-- 音频预加载 -->
+    <link rel="preload" href="../assets/audio/march-of-volunteers.mp3" as="audio" type="audio/mpeg">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="audio-wave-loading">
+            <div class="wave-bar" style="--delay: 0s"></div>
+            <div class="wave-bar" style="--delay: 0.1s"></div>
+            <div class="wave-bar" style="--delay: 0.2s"></div>
+            <div class="wave-bar" style="--delay: 0.3s"></div>
+            <div class="wave-bar" style="--delay: 0.4s"></div>
+            <div class="wave-bar" style="--delay: 0.1s"></div>
+            <div class="wave-bar" style="--delay: 0.2s"></div>
+            <div class="wave-bar" style="--delay: 0.3s"></div>
+        </div>
+        <h2 class="loading-title">义勇军进行曲展示馆</h2>
+        <p class="loading-text">聆听时代强音 · 感受民族觉醒</p>
+        <div class="loading-progress">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <span class="progress-text">正在加载音频资源...</span>
+        </div>
+    </div>
+
+    <!-- 主容器 -->
+    <div id="main-container" class="main-container hidden">
+        <!-- 头部导航 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="hall-badge">
+                    <div class="badge-icon">
+                        <div class="chinese-seal">歌</div>
+                    </div>
+                    <div class="hall-info">
+                        <h1 class="hall-name">《义勇军进行曲》展示馆</h1>
+                        <p class="hall-subtitle">March of the Volunteers</p>
+                    </div>
+                </div>
+                <div class="progress-indicator">
+                    <div class="progress-circle">
+                        <span class="step-number">2</span>
+                    </div>
+                    <span class="step-label">第二站</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- NFC 访问成功指示器 -->
+            <div id="nfc-status" class="nfc-status">
+                <div class="nfc-icon-container">
+                    <div class="nfc-icon">
+                        <div class="nfc-symbol"></div>
+                        <div class="nfc-waves">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nfc-instruction">
+                    <h3 class="nfc-title">NFC 访问成功</h3>
+                    <p class="nfc-text">您已通过NFC芯片成功访问本页面</p>
+                </div>
+            </div>
+
+            <!-- 音频可视化区域 -->
+            <section class="audio-visualization-section">
+                <div class="visualization-container">
+                    <div class="album-cover">
+                        <div class="vinyl-record">
+                            <div class="record-center"></div>
+                            <div class="record-grooves">
+                                <div class="groove"></div>
+                                <div class="groove"></div>
+                                <div class="groove"></div>
+                                <div class="groove"></div>
+                            </div>
+                        </div>
+                        <div class="album-info">
+                            <h2 class="song-title">义勇军进行曲</h2>
+                            <p class="composer">词：田汉 · 曲：聂耳</p>
+                            <p class="year">1935年</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 音频波形显示 -->
+                    <div class="audio-waveform">
+                        <canvas id="waveform-canvas" width="800" height="200"></canvas>
+                        <div class="frequency-bars" id="frequency-bars">
+                            <!-- 由JS生成频率柱 -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 歌词交互区域 -->
+            <section class="lyrics-section">
+                <div class="lyrics-container">
+                    <h3 class="section-title">
+                        <span class="title-icon">🎵</span>
+                        歌词展示
+                    </h3>
+                    <div class="lyrics-scroll" id="lyrics-container">
+                        <!-- 歌词将由JavaScript动态生成 -->
+                    </div>
+                    <div class="lyrics-controls">
+                        <button id="show-pinyin-btn" class="control-btn">
+                            <span>显示拼音</span>
+                        </button>
+                        <button id="auto-scroll-btn" class="control-btn active">
+                            <span>自动滚动</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 历史故事区域 -->
+            <section class="history-section">
+                <div class="story-container">
+                    <div class="composer-portraits">
+                        <div class="portrait-card">
+                            <div class="portrait-frame">
+                                <div class="placeholder-portrait nie-er">
+                                    <div class="portrait-text">聂</div>
+                                    <div class="portrait-text">耳</div>
+                                </div>
+                            </div>
+                            <div class="composer-info">
+                                <h4>聂耳 (1912-1935)</h4>
+                                <p>人民音乐家</p>
+                                <p class="birth-place">云南玉溪</p>
+                            </div>
+                        </div>
+                        
+                        <div class="portrait-card">
+                            <div class="portrait-frame">
+                                <div class="placeholder-portrait tian-han">
+                                    <div class="portrait-text">田</div>
+                                    <div class="portrait-text">汉</div>
+                                </div>
+                            </div>
+                            <div class="composer-info">
+                                <h4>田汉 (1898-1968)</h4>
+                                <p>著名剧作家</p>
+                                <p class="birth-place">湖南长沙</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-content">
+                        <h3 class="story-title">觉醒的号角</h3>
+                        <div class="story-text">
+                            <p>1935年，中华民族正处于生死存亡的关键时刻。年仅23岁的聂耳怀着对祖国深深的热爱，为田汉创作的歌词《义勇军进行曲》谱曲。</p>
+                            <p>这首歌曲原本是电影《风云儿女》的主题歌，却成为了唤醒民族精神的时代强音。歌曲以其激昂的旋律、铿锵的节奏，唤起了无数中华儿女的爱国热情。</p>
+                            <p>从诞生之日起，《义勇军进行曲》就伴随着中华民族的抗争历程，见证了从抗日战争到新中国成立的光辉历史，最终成为了中华人民共和国国歌。</p>
+                        </div>
+                        
+                        <div class="historical-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h5>1935年</h5>
+                                    <p>歌曲诞生</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h5>1949年</h5>
+                                    <p>代国歌</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h5>1982年</h5>
+                                    <p>正式国歌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 音频播放控制区域 -->
+            <section class="audio-controls-section">
+                <div class="player-container">
+                    <div class="playback-controls">
+                        <button id="play-pause-btn" class="play-pause-btn">
+                            <svg class="play-icon" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon hidden" viewBox="0 0 24 24">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="progress-container">
+                            <div class="progress-bar" id="audio-progress-bar">
+                                <div id="progress-fill" class="progress-fill"></div>
+                            </div>
+                            <div class="time-display">
+                                <span id="current-time">0:00</span>
+                                <span class="time-separator">/</span>
+                                <span id="duration">2:46</span>
+                            </div>
+                        </div>
+                        
+                        <button id="volume-btn" class="volume-btn">
+                            <svg class="volume-on" viewBox="0 0 24 24">
+                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                            </svg>
+                            <svg class="volume-off hidden" viewBox="0 0 24 24">
+                                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="volume-slider-container">
+                            <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="70">
+                        </div>
+                    </div>
+                    
+                    <!-- 隐藏的 audio 元素 -->
+                    <audio id="anthem-audio" preload="metadata" crossorigin="anonymous">
+                        <source src="../assets/audio/march-of-volunteers.mp3" type="audio/mpeg">
+                        <source src="../assets/audio/march-of-volunteers.ogg" type="audio/ogg">
+                        您的浏览器不支持音频播放功能。
+                    </audio>
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部导航 -->
+        <footer class="footer">
+            <div class="completion-status">
+                <div class="stamp-slot completed">
+                    <div class="stamp-icon">🎵</div>
+                    <span class="stamp-label">觉醒之章</span>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prev-hall-btn" class="nav-btn prev-btn">
+                    <svg viewBox="0 0 24 24" class="arrow-icon">
+                        <path d="M12 20l1.41-1.41L7.83 13H20v-2H7.83l5.58-5.59L12 4l-8 8z"/>
+                    </svg>
+                    <span>返回宣言馆</span>
+                </button>
+                
+                <button id="next-hall-btn" class="nav-btn next-btn">
+                    <span>前往滨江馆</span>
+                    <svg viewBox="0 0 24 24" class="arrow-icon">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript 引用 -->
+    <script src="../../static-assets/common-js/polyfills.js"></script>
+    <script src="../../static-assets/common-js/config.js"></script>
+    <script src="../../common-components/nfc-reader/nfcHandler.js"></script>
+    <script src="../../common-components/ui-components/audioPlayer.js"></script>
+    <script src="../js/anthem-hall.js?v=20250821"></script>
+</body>
+</html>
